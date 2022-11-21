@@ -319,7 +319,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                 <?php if($container_loaded != "Yes"){ ?>
                     <div>
                         <img src="not_yet_loaded.jpeg" class="card-img-top" alt="..." width = "150px" height="250px">
-                        <p class="card-text">Your order is yet to be loaded into a container</p>
+                        <p class="card-text text-center"><b>Your order is yet to be loaded into a container</b></p>
                     </div>
                 <?php } ?>
             </div>
@@ -342,7 +342,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                 <?php if($onShip != "Yes"){ ?>
                     <div>
                         <img src="not_yet_shipped.jpeg" class="card-img-top" alt="..." width = "150px" height="250px">
-                        <p class="card-text  text-center">Your order is yet to be loaded onto a ship.</p>
+                        <p class="card-text  text-center"><b>Your order is yet to be loaded onto a ship.</b></p>
                     </div>
                 <?php } ?>
             </div>
@@ -364,7 +364,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                 <?php if($picked_up != "Yes"){ ?>
                     <div>
                         <img src="not_yet_transit1.jpeg" class="card-img-top" alt="..." width = "150px" height="250px">
-                        <p class="card-text text-center">Your order is yet to be picked up by a truck</p>
+                        <p class="card-text text-center"><b>Your order is yet to be picked up by a truck</b></p>
                     </div>
                 <?php } ?>
             </div>
