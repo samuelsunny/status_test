@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
     
 
         // Reading from the data base
-        $query = "select * from orders";
+        $query = "select * from orders where exporter_id = '{$user_id}'";
 
         $result = mysqli_query($con, $query);
 
@@ -38,9 +38,11 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
             }
         }
     
-    else{
-        echo "problem in getting data";
-    }
+        else
+        {
+             header("Location: noorder.php");
+            die; 
+        }
 
 }
 

@@ -28,9 +28,11 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
             }
         }
     
-    else{
-        echo "problem in getting data";
-    }
+        else
+        {
+             header("Location: noorder.php");
+            die; 
+        }
 
 }
 
