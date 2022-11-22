@@ -122,7 +122,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     // echo $ship_id;
 
-    $query = "insert into shipping_order (containerId,sourceHarborId,destinationHarborId,FFCId,shipID,onShipDate,arrivalDate,arrived,completedByTruck) values ('{$containerId}', '{$sourceHarborId}', '{$destinationHarborId}', '{$ffcId}', '{$ship_id}', '{$onShipDate}', '{$arrivalDate}', 0,0)";
+    $query = "insert into shipping_order (containerId,sourceHarborId,destinationHarborId,FFCId,shipID,onShipDate,arrivalDate,arrived,completedByTruck,orderDate) values ('{$containerId}', '{$sourceHarborId}', '{$destinationHarborId}', '{$ffcId}', '{$ship_id}', '{$onShipDate}', '{$arrivalDate}', 0,0,CURDATE())";
 
     mysqli_query($con, $query);
     $status = 1;

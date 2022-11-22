@@ -283,7 +283,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     mysqli_query($con, $query);
 
 
-    $query = "insert into loading_orders (containerId,buyerOrderId,harborId,packId,grossWeight,grossCubeFeet,loadingImage,loadingDate,onShip) values ('{$containerId}', '{$buyerOrderId}', '{$harborId}', '{$packId}', '{$grossWeight}', '{$grossCubeFeet}', '{$imgContent}', '{$loadingDate}',0)";
+    $query = "insert into loading_orders (containerId,buyerOrderId,harborId,packId,grossWeight,grossCubeFeet,loadingImage,loadingDate,onShip,orderDate) values ('{$containerId}', '{$buyerOrderId}', '{$harborId}', '{$packId}', '{$grossWeight}', '{$grossCubeFeet}', '{$imgContent}', '{$loadingDate}',0,CURDATE())";
 
     mysqli_query($con, $query);
     

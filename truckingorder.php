@@ -201,8 +201,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $eta = $_POST['eta']; 
 
     $query = "insert into truck_orders (containerId,FFCId,statusId,harborId,harborLeaveDate,truckId,driverId,warehouseId,
-              truckingCompanyId,mileage,ETA,arriveDate,unloadDate,ifLoadOnReturn,returnGrossWeight,acceptedByTruckCom,acceptedByWarehouse,otherNote,pickedUp,pickupTime,delivered) values (
-                '{$containerId}', '{$user_id}', 0,'{$harborId}',0, 0, 0,'{$warehouseId}','{$truckingCompanyId}','{$mileage}','{$eta}',0,0,0,0,0,0,0,0,0,0)";
+              truckingCompanyId,mileage,ETA,arriveDate,unloadDate,ifLoadOnReturn,returnGrossWeight,acceptedByTruckCom,acceptedByWarehouse,otherNote,pickedUp,pickupTime,delivered,orderDate) values (
+                '{$containerId}', '{$user_id}', 0,'{$harborId}',0, 0, 0,'{$warehouseId}','{$truckingCompanyId}','{$mileage}','{$eta}',0,0,0,0,0,0,0,0,0,0,CURDATE())";
 
     mysqli_query($con, $query);
     // $arrived = "Yes";

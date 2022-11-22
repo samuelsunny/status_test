@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $status      = "Not loaded";
         $containerId = 0;
         // echo $real_data[$x]['product_id'];
-        $query = "insert into orders (user_id,product_id,product_name,product_brand,product_type,quantity,exporter_id,exporter_name,warehouseId,status,containerId) values ('{$user_id}','{$id}','{$name}','{$brand}','{$type}','{$quantity}','{$exporter_id}','{$exporter_name}','{$warehouseId}','{$status}','{$containerId}')";
+        $query = "insert into orders (user_id,product_id,product_name,product_brand,product_type,quantity,exporter_id,exporter_name,warehouseId,status,containerId,orderDate) values ('{$user_id}','{$id}','{$name}','{$brand}','{$type}','{$quantity}','{$exporter_id}','{$exporter_name}','{$warehouseId}','{$status}','{$containerId}',CURDATE())";
 
         mysqli_query($con, $query);
         
@@ -227,6 +227,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             var quantity = document.getElementsByName("quantity").value;
             var warehouseId = document.getElementById("warehouse").value;
             var poster = document.getElementById("poster");
+           
 
             data[0]['quantity'] = quantity;
             data[0]['warehouseId'] = warehouseId;
@@ -289,7 +290,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         <tr>
                         <th scope="col">Product Id</th>
                         <th scope="col">Product Name</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Price (in USD)</th>
                         <th scope="col">Exporter Name</th>
                         </tr>
                     </thead>
@@ -357,7 +358,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         {
             var poster =  document.getElementById("poster");
             var warehouse_data = {
-                    "warehouseId"    : harborId,
+                    "warehouseId"    : harborId
                     }
             json_data = JSON.stringify(warehouse_data);
             poster.value = json_data;
