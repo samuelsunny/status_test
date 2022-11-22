@@ -194,6 +194,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         </div>
     </nav>
 </div>
+<div class="container-fluid">
+
     <div class="row justify-content-center mt-5">
         <div class="col-6">
             <h1 class="display-4 fs-2 text-center"><b>Add product details</b></h1>
@@ -204,40 +206,46 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <div class="col-6">
         <form method = "post" enctype="multipart/form-data">
             <div class="row">
-                <div class="mb-4">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_name" placeholder="Enter the product name">
+                <div class="mb-2">
+                    <label for="exampleFormControlInput1" class="form-label">Enter the product name</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_name" placeholder="">
                 </div>
             </div>
             <div class="row">
-                <div class="mb-4">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_brand" placeholder="Enter the product brand">
+                <div class="mb-2">
+                    <label for="exampleFormControlInput1" class="form-label">Enter the product brand</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_brand" placeholder="">
                 </div>
             </div>
             <div class="row">
-                <div class="mb-4">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_type" placeholder="Enter the product type">
+                <div class="mb-2">
+                    <label for="exampleFormControlInput1" class="form-label">Enter the product type</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_type" placeholder="">
                 </div>
             </div>
             <div class="row">
-                <div class="mb-4">
-                    <input type="number" class="form-control" id="exampleFormControlInput1" name = "product_price" placeholder="Enter the product price">
+                <div class="mb-2">
+                    <label for="exampleFormControlInput1" class="form-label">Enter the product price</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" name = "product_price" placeholder="">
                 </div>
             </div>
         </div>
 
         <div class="col-6">
             <div class="row">
-                <div class="mb-4">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_barcode" placeholder="Enter the product barcode">
+                <div class="mb-2">
+                    <label for="exampleFormControlInput1" class="form-label">Enter the product barcode</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_barcode" placeholder="">
                 </div>
             </div>
             <div class="row">
-                <div class="mb-4">
+                <div class="mb-2">
+                    <label for="exampleFormControlInput1" class="form-label">Enter the product weight</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_weight" placeholder="Enter the product weight">
                 </div>
             </div>
             <div class="row">
-                <div class="mb-3">
+                <div class="mb-2">
                     <label for="formFile" class="form-label">Choose the product image file</label>
                     <input class="form-control" type="file" id="formFile" name="image_file">
                 </div>
@@ -252,6 +260,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     </div>
 
     </div>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>
