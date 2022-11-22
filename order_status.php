@@ -99,13 +99,14 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                     $arrival_date = "MM//DD//YYYY";
                 }
                 // Getting the delivery by truck status
-                $query = "select truckId,driverId,pickedUp,pickupTime from truck_orders where containerId = '{$order_container}'";
+                $query = "select truckId,driverId,warehouseId,pickedUp,pickupTime from truck_orders where containerId = '{$order_container}'";
                 $result = mysqli_query($con, $query);
                 if($result && mysqli_num_rows($result) > 0)
                 {
                     $pick_up_status = mysqli_fetch_all($result);
                     $truckId = $pick_up_status[0][0];
                     $driverId = $pick_up_status[0][1];
+                    $warehouseId = $pick_up_status[0][2];
                     // Getting driver name
                     $query = "select driverName from drivers where driverId = '{$driverId}'";
                     $result = mysqli_query($con, $query);
@@ -114,8 +115,19 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                         $driver_details = mysqli_fetch_all($result);
                         $driverName = $driver_details[0][0];
                     }
-                    $picked_up = $pick_up_status[0][2];
-                    $pickupTime = $pick_up_status[0][3];
+                    $picked_up = $pick_up_status[0][3];
+                    $pickupTime = $pick_up_status[0][4];
+                    // Getting warehouse address
+                    $query = "select * from warehouses where warehouse_id = '{$warehouseId}'";
+                    $result = mysqli_query($con, $query);
+                    if($result && mysqli_num_rows($result) > 0)
+                    {
+                        $warehouse_details = mysqli_fetch_all($result);
+                        $warehouse_name = $warehouse_details[0][2];
+                        $warehouse_address = $warehouse_details[0][6];
+                        $warehouse_contact_number = $warehouse_details[0][5];
+
+                    }
 
                 }
                 else
@@ -124,6 +136,9 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                     $driverName = "Not available";
                     $picked_up = "Yet to be picked up from the port";
                     $pickupTime = "MM//DD//YYYY";
+                    $warehouse_name = "Not available";
+                    $warehouse_address =  "Not available";
+                    $warehouse_contact_number =  "Not available";
                 }
                 // Getting the delivery status
                 $query = "select delivered from truck_orders where containerId = '{$order_container}'";
@@ -378,7 +393,10 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                         <p class="card-text text-center"><b>Delivered</b></p>
                         <hr>
                         <p class="card-text">Details:</p>  
-                        <p class="card-text"><b>Delivered at:</b><?php echo $warehouse_address; ?></p>                  
+                        <p class="card-text"><b>Delivered at: </b><?php echo $warehouse_name; ?></p> 
+                        <p class="card-text"><b>Address: </b><?php echo $warehouse_address; ?></p> 
+                        <p class="card-text"><b>Contact number: </b><?php echo $warehouse_contact_number; ?></p>                  
+                 
                     </div>
                 <?php } ?>
                 <?php if($delivered != "Yes" && $returned != "Yes"){ ?>
