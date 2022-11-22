@@ -288,7 +288,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     <tr>
                     <td class="text-center">
                     <input class="text-center form-check-input" type="checkbox" value="<?php echo $selected_product_data[$row][0],"/",$selected_product_data[$row][1],"/",$selected_product_data[$row][2],"/",$selected_product_data[$row][3],
-                                                                                                    "/",$selected_product_data[$row][8],"/",$selected_product_data[$row][8],"/",$selected_product_data[$row][9]; ?>"  id="checkbox" name="check_box">
+                                                                                                    "/",$selected_product_data[$row][7],"/",$selected_product_data[$row][8],"/",$selected_product_data[$row][9]; ?>"  id="checkbox" name="check_box">
                     </td>
                     <th scope="row" class="text-center"><?php echo $selected_product_data[$row][0]; ?></th>
                     
