@@ -26,6 +26,11 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
             {
                 $orders_data = mysqli_fetch_all($result);
             }
+            else
+            {
+                header("Location: noorder.php");
+                die; 
+            }
         }
     
         else
