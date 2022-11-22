@@ -342,7 +342,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
             <!-- shipping and transit status -->
 
             <div class="col-3 p-3">
-                <?php if($onShip == "Yes"){ ?>
+                <?php if($onShip == "Yes"|| ($onShip != "Yes" && $delivered == "Yes")){ ?>
                     <div>
                         <img src="container_onship.jpg" class="card-img-top" alt="..." width = "150px" height="250px">
                         <p class="card-text text-center"><b>Container loaded onto ship</b></p>
