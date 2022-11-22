@@ -63,8 +63,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $query = "update truck_orders set delivered ='{$accepted}' where truckOrderId = '{$trucking_order_id}'";
     
         mysqli_query($con, $query);
-        // $query = "select driverId from truck_orders where truckOrderId = '{$trucking_order_id}'";
-        // mysqli_query($con, $query);
+
+        $query = "select containerId from truck_orders where truckorderId = '{$trucking_order_id}'";
+        $result = mysqli_query($con, $query);
+        if($result && mysqli_num_rows($result) > 0)
+        {
+            $containerId = mysqli_fetch_all($result);
+        }
+        //Resetting the destination harbor to zero
+        $destinationHarborId = "0000";
+        $onShip = "No";
+
+        $query = "update containers set destinationHarborId ='{$destinationHarborId}',onShip='{$onShip}' where containerId = '{$containerId[0][0]}'";
+    
+        mysqli_query($con, $query);
+        $query = "select driverId from truck_orders where truckOrderId = '{$trucking_order_id}'";
+        mysqli_query($con, $query);
         $query = "select driverId from truck_orders where truckOrderId = '{$trucking_order_id}'";
         $result = mysqli_query($con, $query);
         // print_r( $result);
@@ -81,6 +95,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             echo "problem in getting data";
         }
         header("Location: orders_driver.php?did={$trucking_order_driverId[0][0]}");
+        die;
     }
     if($_POST['pickedup'])
     {
